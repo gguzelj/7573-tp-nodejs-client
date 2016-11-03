@@ -5,6 +5,7 @@ import { RouterModule }   from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { SubjectsComponent }  from './subjects.component';
+import { CoursesComponent }  from './courses.component';
 
 @NgModule({
     imports: [
@@ -12,12 +13,14 @@ import { SubjectsComponent }  from './subjects.component';
         FormsModule,
         RouterModule.forRoot([
           { path: 'subjects', component: SubjectsComponent },
+          { path: 'courses', component: CoursesComponent },
           { path: '', component: AppComponent },
         ])
     ],
     declarations: [
         AppComponent,
-        SubjectsComponent
+        SubjectsComponent,
+        CoursesComponent
     ],
     bootstrap: [ AppComponent ]
 })

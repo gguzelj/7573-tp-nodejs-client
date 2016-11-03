@@ -14,6 +14,7 @@ var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var subjects_component_1 = require('./subjects.component');
+var courses_component_1 = require('./courses.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,12 +25,14 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 router_1.RouterModule.forRoot([
                     { path: 'subjects', component: subjects_component_1.SubjectsComponent },
+                    { path: 'courses', component: courses_component_1.CoursesComponent },
                     { path: '', component: app_component_1.AppComponent },
                 ])
             ],
             declarations: [
                 app_component_1.AppComponent,
-                subjects_component_1.SubjectsComponent
+                subjects_component_1.SubjectsComponent,
+                courses_component_1.CoursesComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
