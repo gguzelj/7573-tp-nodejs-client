@@ -9,18 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var Subject = (function () {
+    function Subject() {
     }
-    AppComponent = __decorate([
+    return Subject;
+}());
+exports.Subject = Subject;
+var SUBJECTS = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+];
+var SubjectsComponent = (function () {
+    function SubjectsComponent() {
+        // Here would be the GET request
+        this.subjects = SUBJECTS;
+    }
+    SubjectsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'views/landing/index.html'
+            selector: 'subjects',
+            templateUrl: 'views/subjects/index.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SubjectsComponent);
+    return SubjectsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SubjectsComponent = SubjectsComponent;
+//# sourceMappingURL=subjects.component.js.map
