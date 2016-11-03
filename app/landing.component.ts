@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     moduleId: module.id,
     selector: 'my-app',
-    templateUrl: 'views/app.html'
+    templateUrl: 'views/landing/index.html'
 })
 
-export class AppComponent { }
+export class LandingComponent { }

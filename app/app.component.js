@@ -16,7 +16,7 @@ var AppComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            templateUrl: 'views/landing/index.html'
+            templateUrl: 'views/app.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

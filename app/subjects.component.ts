@@ -20,7 +20,7 @@ const SUBJECTS: Subject[] = [
 
 @Component({
     moduleId: module.id,
-    selector: 'subjects',
+    selector: 'my-app',
     templateUrl: 'views/subjects/index.html'
 })
 

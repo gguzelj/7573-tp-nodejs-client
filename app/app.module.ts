@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent }  from './app.component';
+import { LandingComponent }  from './landing.component';
 import { SubjectsComponent }  from './subjects.component';
 import { CoursesComponent }  from './courses.component';
 
@@ -12,13 +13,16 @@ import { CoursesComponent }  from './courses.component';
         BrowserModule,
         FormsModule,
         RouterModule.forRoot([
+          { path: '', component: LandingComponent },
+        ]),
+        RouterModule.forChild([
           { path: 'subjects', component: SubjectsComponent },
           { path: 'courses', component: CoursesComponent },
-          { path: '', component: AppComponent },
         ])
     ],
     declarations: [
         AppComponent,
+        LandingComponent,
         SubjectsComponent,
         CoursesComponent
     ],
