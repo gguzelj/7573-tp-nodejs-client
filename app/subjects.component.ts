@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-const SUBJECTS: Subject[] = [
+const SUBJECTS = [
   {
     "id": 1,
     "department": "75",
