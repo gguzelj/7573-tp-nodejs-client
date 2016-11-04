@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
 
-export class Subject {
-    id: number;
-    name: string;
-}
-
 const SUBJECTS: Subject[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  {
+    "id": 1,
+    "department": "75",
+    "code": "43",
+    "name": "INTRODUCCION A LOS SISTEMAS DISTRIBUIDOS",
+    "credits": 6,
+  },
+  {
+    "id": 2,
+    "department": "75",
+    "code": "73",
+    "name": "ARQUITECTURA DEL SOFTWARE",
+    "credits": 6,
+  },
+  {
+    "id": 3,
+    "department": "75",
+    "code": "26",
+    "name": "SIMULACIÓN",
+    "credits": 6,
+  }
 ];
 
 @Component({

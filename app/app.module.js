@@ -15,7 +15,7 @@ var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var landing_component_1 = require('./landing.component');
 var subjects_component_1 = require('./subjects.component');
-var courses_component_1 = require('./courses.component');
+var subject_component_1 = require('./subject.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,14 +29,14 @@ var AppModule = (function () {
                 ]),
                 router_1.RouterModule.forChild([
                     { path: 'subjects', component: subjects_component_1.SubjectsComponent },
-                    { path: 'courses', component: courses_component_1.CoursesComponent },
+                    { path: 'subject', component: subject_component_1.SubjectComponent },
                 ])
             ],
             declarations: [
                 app_component_1.AppComponent,
                 landing_component_1.LandingComponent,
                 subjects_component_1.SubjectsComponent,
-                courses_component_1.CoursesComponent
+                subject_component_1.SubjectComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

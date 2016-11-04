@@ -52,3 +52,21 @@ body {
   color: green;
   margin: .5em;
 }
+
+ul>li {
+  cursor: pointer;
+  margin: 1em;
+}
+
+.badge {
+  color: green;
+  margin: .5em;
+}
+
+.badge:before {
+  content: "["
+}
+
+.badge:after {
+  content: "]"
+}

@@ -6,17 +6,44 @@
    </ul>
  </div>
  <div class="content">
-   <h1>Cátedras</h1>
-   <p>A continuación se muestran las cátedras de la materia seleccionada.
-     Para inscribirte en una de ellas tenes que ir a la sección de inscripciones.
-     Tené en cuenta que no se podrán superar las vacantes de cada curso.</p>
+   <h1>{{subject.name}}</h1>
+   <p>A continuación se muestran los cursos de {{subject.name}}.
+     Esta materia te dara {{subject.credits}} creditos.
+     Para inscribirte en un curso tenes que seguir el boton 'inscribirme'.
+     Tené en cuenta que si no quedan mas vacantes o si ya te inscribiste a otro curso
+     de la materia, no te podras inscribir.</p>
 
-  <dl>
-    <dt>Catedra 1</dt>
-    <dd>Brief info</dd>
-    <dt>Catedra 2</dt>
-    <dd>Brief info</dd>
-  </dl>
+   <ul>
+     <li *ngFor="let course of subject.courses">
+       <span class="badge">{{course.name}}</span>
+       <dl>
+         <dt>Sede</dt>
+         <dd>{{course.headquarters}}</dd>
+         <dt>Profesores</dt>
+         <dd>{{course.professors}}</dd>
+         <dt>Vacantes</dt>
+         <dd>{{course.vacancy}}</dd>
+         <dt>Horarios</dt>
+         <dd>
+           <ul>
+             <li *ngFor="let lesson of course.schedule">
+               <dl>
+                 <dt>Tipo de clase</dt>
+                 <dd>{{lesson.type}}</dd>
+                 <dt>Dia</dt>
+                 <dd>{{lesson.day}}</dd>
+                 <dt>Horario</dt>
+                 <dd>{{lesson.from}} a {{lesson.to}}</dd>
+                 <dt>Aula</dt>
+                 <dd>{{lesson.classroom}}</dd>
+               </dl>
+             </li>
+           </ul>
+         </dd>
+       </dl>
+       <button>Inscribirme</button>
+     </li>
+   </ul>
 </div>
 
 <div class="footer">

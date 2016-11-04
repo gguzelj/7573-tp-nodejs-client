@@ -13,12 +13,11 @@
      Una vez que elijas la cátedra, podrás realizar la inscripción en
      la sección correspondiente a esa cátedra.</p>
 
-  <dl>
-    <dt>Subject 1</dt>
-    <dd>Brief info</dd>
-    <dt>Subject 2</dt>
-    <dd>Brief info</dd>
-  </dl>
+  <ul>
+    <li *ngFor="let subject of subjects">
+      <span class="badge">{{subject.department}}.{{subject.code}}</span> {{subject.name}}
+    </li>
+  </ul>
 </div>
 
 <div class="footer">

@@ -6,7 +6,7 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent }  from './app.component';
 import { LandingComponent }  from './landing.component';
 import { SubjectsComponent }  from './subjects.component';
-import { CoursesComponent }  from './courses.component';
+import { SubjectComponent }  from './subject.component';
 
 @NgModule({
     imports: [
@@ -17,14 +17,14 @@ import { CoursesComponent }  from './courses.component';
         ]),
         RouterModule.forChild([
           { path: 'subjects', component: SubjectsComponent },
-          { path: 'courses', component: CoursesComponent },
+          { path: 'subject', component: SubjectComponent },
         ])
     ],
     declarations: [
         AppComponent,
         LandingComponent,
         SubjectsComponent,
-        CoursesComponent
+        SubjectComponent
     ],
     bootstrap: [ AppComponent ]
 })
