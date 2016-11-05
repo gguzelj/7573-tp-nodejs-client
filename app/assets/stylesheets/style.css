@@ -70,3 +70,12 @@ ul>li {
 .badge:after {
   content: "]"
 }
+
+.lesson-details ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+.inscription-button {
+  float: right;
+}

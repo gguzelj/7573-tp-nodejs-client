@@ -16,6 +16,7 @@
    <ul>
      <li *ngFor="let course of subject.courses">
        <span class="badge">{{course.name}}</span>
+       <button class="inscription-button">Inscribirme</button>       
        <dl>
          <dt>Sede</dt>
          <dd>{{course.headquarters}}</dd>
@@ -24,7 +25,7 @@
          <dt>Vacantes</dt>
          <dd>{{course.vacancy}}</dd>
          <dt>Horarios</dt>
-         <dd>
+         <dd class="lesson-details">
            <ul>
              <li *ngFor="let lesson of course.schedule">
                <dl>
@@ -41,7 +42,6 @@
            </ul>
          </dd>
        </dl>
-       <button>Inscribirme</button>
      </li>
    </ul>
 </div>
