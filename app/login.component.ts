@@ -29,6 +29,7 @@ export class LoginComponent {
   login(user_uniq_number, pwd){
     this.users.forEach(function(user){
       if (user.uniq_number == user_uniq_number && user.password == pwd){
+        localStorage.setItem('user_number', user_uniq_number);
         this.router.navigate(['home']);
       }
     }, this);

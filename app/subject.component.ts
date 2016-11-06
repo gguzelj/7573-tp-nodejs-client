@@ -50,6 +50,7 @@ export class SubjectComponent {
   subject = db_subject;
 
   enroll(course_id) {
+    console.log(localStorage.getItem('user_number'));
     console.log(course_id);
   }
 }

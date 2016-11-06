@@ -50,6 +50,7 @@ var SubjectComponent = (function () {
         this.subject = db_subject;
     }
     SubjectComponent.prototype.enroll = function (course_id) {
+        console.log(localStorage.getItem('user_number'));
         console.log(course_id);
     };
     SubjectComponent = __decorate([
