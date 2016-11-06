@@ -1,10 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-
-import { Location }                 from '@angular/common';
+import {Component, OnInit} from "@angular/core";
+import {Router, ActivatedRoute, Params} from "@angular/router";
 import {SubjectService} from "./service/subject.service";
 import {Subject} from "./model/subject";
-import { LoginComponent }           from './login.component';
 
 const db_subject = {
   "id": 3,
@@ -74,8 +71,11 @@ export class SubjectComponent implements OnInit {
   }
 
   enroll(course_id): void {
-    console.log(localStorage.getItem('user_number'));
-    console.log(course_id);
+    this.service.enroll(this.subject.id, course_id, localStorage.getItem('user_number'))
+        .subscribe(
+            student => {
+            },
+            error => console.error('Error: ' + error));
   }
 
 }

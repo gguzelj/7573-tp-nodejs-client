@@ -25,6 +25,13 @@ var SubjectService = (function () {
         return this.http.get(this.baseUrl + "/" + id, { headers: this.headers })
             .map(function (res) { return res.json(); });
     };
+    SubjectService.prototype.enroll = function (subject_id, course_id, user_number) {
+        var url = this.baseUrl + "/" + subject_id + "/courses/" + course_id;
+        var body = JSON.stringify({ student_id: user_number, name: "nombre", last_name: "apellido" });
+        return this.http
+            .post(url, body, { headers: this.headers })
+            .map(function (res) { return res.json(); });
+    };
     SubjectService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

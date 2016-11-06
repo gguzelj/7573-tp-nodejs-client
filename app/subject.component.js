@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var subject_service_1 = require("./service/subject.service");
 var db_subject = {
     "id": 3,
@@ -64,8 +64,9 @@ var SubjectComponent = (function () {
         }, function (error) { return console.error('Error: ' + error); });
     };
     SubjectComponent.prototype.enroll = function (course_id) {
-        console.log(localStorage.getItem('user_number'));
-        console.log(course_id);
+        this.service.enroll(this.subject.id, course_id, localStorage.getItem('user_number'))
+            .subscribe(function (student) {
+        }, function (error) { return console.error('Error: ' + error); });
     };
     SubjectComponent = __decorate([
         core_1.Component({
