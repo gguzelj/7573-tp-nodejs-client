@@ -14,10 +14,10 @@
      la sección correspondiente a esa cátedra.</p>
 
   <ul>
-    <li *ngFor="let subject of subjects">
+    <li *ngFor="let subject of subjects" (click)="onSelect(subject)">
       <span class="badge">{{subject.department}}.{{subject.code}}</span> {{subject.name}}
     </li>
-
+  </ul>
 </div>
 
 <div class="footer">

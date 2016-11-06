@@ -15,11 +15,12 @@ import {SubjectService} from "./service/subject.service";
         BrowserModule,
         FormsModule,
         RouterModule.forRoot([
-          { path: '', component: LoginComponent },
+            { path: '', component: LoginComponent },
         ]),
         RouterModule.forChild([
-          { path: 'subjects', component: SubjectsComponent },
-          { path: 'subject/:subject_id', component: SubjectComponent },
+            { path: 'subjects', component: SubjectsComponent },
+            { path: 'subject/:subject_id', component: SubjectComponent },
+            { path: 'home', component: LandingComponent }
         ])
     ],
     declarations: [

@@ -28,6 +28,7 @@ export class SubjectsComponent implements OnInit {
   }
 
   onSelect(subject: Subject): void {
+    console.log(subject);
     this.router.navigate(['/subject', subject.id]);
   }
 }

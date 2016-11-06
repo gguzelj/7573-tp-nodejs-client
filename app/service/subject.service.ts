@@ -10,7 +10,8 @@ import {Course} from "../model/course";
 var schedule = new Schedule("12222","carlos","pepe", "19", "22");
 var course = new Course(2,"Casa rosada", Array("Carlos","juan"), Array(schedule), 2, null);
 var subject = new Subject(1,"75","32","TREST",1, Array(course));
-var subject2 = new Subject(1,"75","32","Oooootra materia mas",1, Array(course));
+var subject2 = new Subject(2,"75","32","Oooootra materia mas",1, Array(course));
+var subject2 = new Subject(3,"75","32","TESSSST to delete",1, Array(course));
 
 /*
 var SUBJECTS = [
