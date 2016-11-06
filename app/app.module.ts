@@ -12,11 +12,14 @@ import {SubjectService} from "./service/subject.service";
 
 import { HttpModule }    from '@angular/http';
 
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
+        ToastModule,
         RouterModule.forRoot([
             { path: '', component: LoginComponent },
         ]),

@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var subject_service_1 = require("./service/subject.service");
+var ng2_toastr_1 = require('ng2-toastr/ng2-toastr');
 var SubjectComponent = (function () {
-    function SubjectComponent(route, router, service) {
+    function SubjectComponent(route, router, service, toastr) {
         this.route = route;
         this.router = router;
         this.service = service;
+        this.toastr = toastr;
     }
     SubjectComponent.prototype.ngOnInit = function () {
         var subject_id;
@@ -26,10 +28,12 @@ var SubjectComponent = (function () {
     };
     SubjectComponent.prototype.enroll = function (course_id) {
         var _this = this;
-        this.service.enroll(this.subject.id, course_id, localStorage.getItem('user_number'))
+        var student_id = localStorage.getItem('user_number');
+        this.service.enroll(this.subject.id, course_id, student_id)
             .subscribe(function (student) {
             _this.reloadData(_this.subject.id);
-        }, function (error) { return console.error('Error: ' + error); });
+            _this.toastr.success('Alumno ' + student_id + ' inscripto', 'Excelente!');
+        }, function (error) { return _this.toastr.error('Algo no salió bien!', 'Oops!'); });
     };
     SubjectComponent.prototype.reloadData = function (subject_id) {
         var _this = this;
@@ -44,7 +48,7 @@ var SubjectComponent = (function () {
             selector: 'subject-detail',
             templateUrl: 'views/subjects/show.html'
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, subject_service_1.SubjectService])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, subject_service_1.SubjectService, ng2_toastr_1.ToastsManager])
     ], SubjectComponent);
     return SubjectComponent;
 }());
