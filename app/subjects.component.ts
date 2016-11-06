@@ -31,6 +31,6 @@ export class SubjectsComponent implements OnInit {
   }
 
   onSelect(subject: Subject): void {
-    this.router.navigate(['/subject', subject.id]);
+    this.router.navigate(['/subjects', subject.id]);
   }
 }

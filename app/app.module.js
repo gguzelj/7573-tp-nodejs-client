@@ -33,7 +33,7 @@ var AppModule = (function () {
                 ]),
                 router_1.RouterModule.forChild([
                     { path: 'subjects', component: subjects_component_1.SubjectsComponent },
-                    { path: 'subject/:subject_id', component: subject_component_1.SubjectComponent },
+                    { path: 'subjects/:subject_id', component: subject_component_1.SubjectComponent },
                     { path: 'home', component: landing_component_1.LandingComponent }
                 ])
             ],

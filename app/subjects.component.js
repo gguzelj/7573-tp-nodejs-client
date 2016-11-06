@@ -26,7 +26,7 @@ var SubjectsComponent = (function () {
             .subscribe(function (subjects) { return _this.subjects = subjects; }, function (error) { return console.error('Error: ' + error); });
     };
     SubjectsComponent.prototype.onSelect = function (subject) {
-        this.router.navigate(['/subject', subject.id]);
+        this.router.navigate(['/subjects', subject.id]);
     };
     SubjectsComponent = __decorate([
         core_1.Component({

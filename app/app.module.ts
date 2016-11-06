@@ -22,7 +22,7 @@ import { HttpModule }    from '@angular/http';
         ]),
         RouterModule.forChild([
             { path: 'subjects', component: SubjectsComponent },
-            { path: 'subject/:subject_id', component: SubjectComponent },
+            { path: 'subjects/:subject_id', component: SubjectComponent },
             { path: 'home', component: LandingComponent }
         ])
     ],
