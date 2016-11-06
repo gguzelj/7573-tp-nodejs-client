@@ -9,41 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SUBJECTS = [
-    {
-        "id": 1,
-        "department": "75",
-        "code": "43",
-        "name": "INTRODUCCION A LOS SISTEMAS DISTRIBUIDOS",
-        "credits": 6,
-    },
-    {
-        "id": 2,
-        "department": "75",
-        "code": "73",
-        "name": "ARQUITECTURA DEL SOFTWARE",
-        "credits": 6,
-    },
-    {
-        "id": 3,
-        "department": "75",
-        "code": "26",
-        "name": "SIMULACIÓN",
-        "credits": 6,
-    }
-];
+var subject_service_1 = require("./service/subject.service");
+var router_1 = require("@angular/router");
 var SubjectsComponent = (function () {
-    function SubjectsComponent() {
-        // Here would be the GET request
-        this.subjects = SUBJECTS;
+    function SubjectsComponent(router, service) {
+        this.router = router;
+        this.service = service;
     }
+    SubjectsComponent.prototype.ngOnInit = function () {
+        this.getSubjects();
+    };
+    SubjectsComponent.prototype.getSubjects = function () {
+        var _this = this;
+        this.service
+            .getSubjects()
+            .then(function (subjects) { return _this.subjects = subjects; });
+    };
+    SubjectsComponent.prototype.onSelect = function (subject) {
+        this.router.navigate(['/subject', subject.id]);
+    };
     SubjectsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
             templateUrl: 'views/subjects/index.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, subject_service_1.SubjectService])
     ], SubjectsComponent);
     return SubjectsComponent;
 }());

@@ -9,6 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var subject_service_1 = require("./service/subject.service");
 var db_subject = {
     "id": 3,
     "department": "75",
@@ -45,10 +47,23 @@ var db_subject = {
     ]
 };
 var SubjectComponent = (function () {
-    function SubjectComponent() {
-        // Here should be the GET request
-        this.subject = db_subject;
+    function SubjectComponent(route, router, service) {
+        this.route = route;
+        this.router = router;
+        this.service = service;
     }
+    SubjectComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var id;
+        this.route.params.forEach(function (params) {
+            id = +params['id']; // (+) converts string 'id' to a number
+        });
+        this.service.findSubjectById(id).then(function (subject) {
+            console.log(id);
+            console.log(subject);
+            _this.subject = subject;
+        });
+    };
     SubjectComponent.prototype.enroll = function (course_id) {
         console.log(localStorage.getItem('user_number'));
         console.log(course_id);
@@ -56,10 +71,10 @@ var SubjectComponent = (function () {
     SubjectComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'views/subjects/show.html',
+            selector: 'subject-detail',
+            templateUrl: 'views/subjects/show.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, subject_service_1.SubjectService])
     ], SubjectComponent);
     return SubjectComponent;
 }());

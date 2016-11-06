@@ -8,6 +8,7 @@ import { LoginComponent }  from './login.component';
 import { LandingComponent }  from './landing.component';
 import { SubjectsComponent }  from './subjects.component';
 import { SubjectComponent }  from './subject.component';
+import {SubjectService} from "./service/subject.service";
 
 @NgModule({
     imports: [
@@ -18,8 +19,7 @@ import { SubjectComponent }  from './subject.component';
         ]),
         RouterModule.forChild([
           { path: 'subjects', component: SubjectsComponent },
-          { path: 'subject', component: SubjectComponent },
-          { path: 'home', component: LandingComponent },
+          { path: 'subject/:subject_id', component: SubjectComponent },
         ])
     ],
     declarations: [
@@ -28,6 +28,9 @@ import { SubjectComponent }  from './subject.component';
         SubjectsComponent,
         SubjectComponent,
         LoginComponent
+    ],
+    providers: [
+        SubjectService
     ],
     bootstrap: [ AppComponent ]
 })

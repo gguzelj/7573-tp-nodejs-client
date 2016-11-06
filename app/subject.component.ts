@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { Location }                 from '@angular/common';
+import {SubjectService} from "./service/subject.service";
+import {Subject} from "./model/subject";
 import { LoginComponent }           from './login.component';
 
 const db_subject = {
@@ -40,17 +43,37 @@ const db_subject = {
 }
 
 @Component({
-    moduleId: module.id,
-    selector: 'my-app',
-    templateUrl: 'views/subjects/show.html',
+  moduleId: module.id,
+  selector: 'subject-detail',
+  templateUrl: 'views/subjects/show.html'
 })
 
-export class SubjectComponent {
-  // Here should be the GET request
-  subject = db_subject;
+export class SubjectComponent implements OnInit {
 
-  enroll(course_id) {
+  subject:Subject;
+
+  constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      private service: SubjectService) {}
+
+
+  ngOnInit(): void {
+
+    let id;
+    this.route.params.forEach((params: Params) => {
+      id = +params['id']; // (+) converts string 'id' to a number
+    });
+    this.service.findSubjectById(id).then(subject => {
+      console.log(id);
+      console.log(subject);
+      this.subject = subject
+    });
+  }
+
+  enroll(course_id): void {
     console.log(localStorage.getItem('user_number'));
     console.log(course_id);
   }
+
 }

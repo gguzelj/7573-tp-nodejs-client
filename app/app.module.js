@@ -17,6 +17,7 @@ var login_component_1 = require('./login.component');
 var landing_component_1 = require('./landing.component');
 var subjects_component_1 = require('./subjects.component');
 var subject_component_1 = require('./subject.component');
+var subject_service_1 = require("./service/subject.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -30,8 +31,7 @@ var AppModule = (function () {
                 ]),
                 router_1.RouterModule.forChild([
                     { path: 'subjects', component: subjects_component_1.SubjectsComponent },
-                    { path: 'subject', component: subject_component_1.SubjectComponent },
-                    { path: 'home', component: landing_component_1.LandingComponent },
+                    { path: 'subject/:subject_id', component: subject_component_1.SubjectComponent },
                 ])
             ],
             declarations: [
@@ -40,6 +40,9 @@ var AppModule = (function () {
                 subjects_component_1.SubjectsComponent,
                 subject_component_1.SubjectComponent,
                 login_component_1.LoginComponent
+            ],
+            providers: [
+                subject_service_1.SubjectService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -1,36 +1,33 @@
-import { Component } from '@angular/core';
-
-const SUBJECTS = [
-  {
-    "id": 1,
-    "department": "75",
-    "code": "43",
-    "name": "INTRODUCCION A LOS SISTEMAS DISTRIBUIDOS",
-    "credits": 6,
-  },
-  {
-    "id": 2,
-    "department": "75",
-    "code": "73",
-    "name": "ARQUITECTURA DEL SOFTWARE",
-    "credits": 6,
-  },
-  {
-    "id": 3,
-    "department": "75",
-    "code": "26",
-    "name": "SIMULACIÓN",
-    "credits": 6,
-  }
-];
+import {Component, OnInit} from '@angular/core';
+import {SubjectService} from "./service/subject.service";
+import {Router} from "@angular/router";
+import {Subject} from "./model/subject";
 
 @Component({
-    moduleId: module.id,
-    selector: 'my-app',
-    templateUrl: 'views/subjects/index.html'
+  moduleId: module.id,
+  selector: 'my-app',
+  templateUrl: 'views/subjects/index.html'
 })
 
-export class SubjectsComponent {
-    // Here would be the GET request
-    subjects = SUBJECTS;
+export class SubjectsComponent implements OnInit {
+
+  subjects: Subject[];
+
+  constructor(
+      private router: Router,
+      private service: SubjectService) { }
+
+  ngOnInit(): void {
+    this.getSubjects();
+  }
+
+  getSubjects(): void {
+    this.service
+        .getSubjects()
+        .then(subjects => this.subjects = subjects);
+  }
+
+  onSelect(subject: Subject): void {
+    this.router.navigate(['/subject', subject.id]);
+  }
 }
