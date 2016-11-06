@@ -21,7 +21,7 @@ export class SubjectService {
             .map(res => res.json());
     }
 
-    enroll(subject_id: number, course_id: number, user_number: number) {
+    enroll(subject_id, course_id, user_number) {
         const url = `${this.baseUrl}/${subject_id}/courses/${course_id}`;
         const body = JSON.stringify({student_id: user_number, name: "nombre", last_name: "apellido"});
 

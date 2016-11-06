@@ -11,41 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var subject_service_1 = require("./service/subject.service");
-var db_subject = {
-    "id": 3,
-    "department": "75",
-    "code": "73",
-    "name": "ARQUITECTURA DEL SOFTWARE",
-    "credits": 6,
-    "courses": [
-        {
-            "id": 1,
-            "name": "Diez",
-            "vacancy": 40,
-            "headquarters": "(PC) Paseo Colon",
-            "professors": [
-                "DIEZ, EDUARDO LUIS",
-                "RUGILO, GUILLERMO HERNAN"
-            ],
-            "schedule": [
-                {
-                    "classroom": "LC",
-                    "type": "Teórica Obligatoria",
-                    "day": "Jueves",
-                    "from": "19:00",
-                    "to": "21:00"
-                },
-                {
-                    "classroom": "404",
-                    "type": "Práctica",
-                    "day": "Viernes",
-                    "from": "19:00",
-                    "to": "21:00"
-                }
-            ]
-        }
-    ]
-};
 var SubjectComponent = (function () {
     function SubjectComponent(route, router, service) {
         this.route = route;
@@ -53,19 +18,24 @@ var SubjectComponent = (function () {
         this.service = service;
     }
     SubjectComponent.prototype.ngOnInit = function () {
-        var _this = this;
         var subject_id;
         this.route.params.forEach(function (params) {
             subject_id = +params['subject_id'];
         });
+        this.reloadData(subject_id);
+    };
+    SubjectComponent.prototype.enroll = function (course_id) {
+        var _this = this;
+        this.service.enroll(this.subject.id, course_id, localStorage.getItem('user_number'))
+            .subscribe(function (student) {
+            _this.reloadData(_this.subject.id);
+        }, function (error) { return console.error('Error: ' + error); });
+    };
+    SubjectComponent.prototype.reloadData = function (subject_id) {
+        var _this = this;
         this.service.findSubjectById(subject_id)
             .subscribe(function (subject) {
             _this.subject = subject;
-        }, function (error) { return console.error('Error: ' + error); });
-    };
-    SubjectComponent.prototype.enroll = function (course_id) {
-        this.service.enroll(this.subject.id, course_id, localStorage.getItem('user_number'))
-            .subscribe(function (student) {
         }, function (error) { return console.error('Error: ' + error); });
     };
     SubjectComponent = __decorate([
