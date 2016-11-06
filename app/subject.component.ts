@@ -60,15 +60,17 @@ export class SubjectComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let id;
+    let subject_id;
     this.route.params.forEach((params: Params) => {
-      id = +params['id']; // (+) converts string 'id' to a number
+      subject_id = +params['subject_id'];
     });
-    this.service.findSubjectById(id).then(subject => {
-      console.log(id);
-      console.log(subject);
-      this.subject = subject
-    });
+
+    this.service.findSubjectById(subject_id)
+        .subscribe(
+            subject => {
+              this.subject = subject;
+            },
+            error => console.error('Error: ' + error));
   }
 
   enroll(course_id): void {

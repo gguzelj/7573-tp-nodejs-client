@@ -18,6 +18,7 @@ var landing_component_1 = require('./landing.component');
 var subjects_component_1 = require('./subjects.component');
 var subject_component_1 = require('./subject.component');
 var subject_service_1 = require("./service/subject.service");
+var http_1 = require('@angular/http');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,6 +27,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                http_1.HttpModule,
                 router_1.RouterModule.forRoot([
                     { path: '', component: login_component_1.LoginComponent },
                 ]),

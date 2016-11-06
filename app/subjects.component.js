@@ -23,10 +23,9 @@ var SubjectsComponent = (function () {
         var _this = this;
         this.service
             .getSubjects()
-            .then(function (subjects) { return _this.subjects = subjects; });
+            .subscribe(function (subjects) { return _this.subjects = subjects; }, function (error) { return console.error('Error: ' + error); });
     };
     SubjectsComponent.prototype.onSelect = function (subject) {
-        console.log(subject);
         this.router.navigate(['/subject', subject.id]);
     };
     SubjectsComponent = __decorate([

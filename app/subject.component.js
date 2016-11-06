@@ -54,15 +54,14 @@ var SubjectComponent = (function () {
     }
     SubjectComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var id;
+        var subject_id;
         this.route.params.forEach(function (params) {
-            id = +params['id']; // (+) converts string 'id' to a number
+            subject_id = +params['subject_id'];
         });
-        this.service.findSubjectById(id).then(function (subject) {
-            console.log(id);
-            console.log(subject);
+        this.service.findSubjectById(subject_id)
+            .subscribe(function (subject) {
             _this.subject = subject;
-        });
+        }, function (error) { return console.error('Error: ' + error); });
     };
     SubjectComponent.prototype.enroll = function (course_id) {
         console.log(localStorage.getItem('user_number'));

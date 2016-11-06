@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SubjectService} from "./service/subject.service";
 import {Router} from "@angular/router";
 import {Subject} from "./model/subject";
+import {Observable} from "rxjs";
 
 @Component({
   moduleId: module.id,
@@ -24,11 +25,12 @@ export class SubjectsComponent implements OnInit {
   getSubjects(): void {
     this.service
         .getSubjects()
-        .then(subjects => this.subjects = subjects);
+        .subscribe(
+            subjects => this.subjects = subjects,
+            error => console.error('Error: ' + error));
   }
 
   onSelect(subject: Subject): void {
-    console.log(subject);
     this.router.navigate(['/subject', subject.id]);
   }
 }

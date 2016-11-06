@@ -10,10 +10,13 @@ import { SubjectsComponent }  from './subjects.component';
 import { SubjectComponent }  from './subject.component';
 import {SubjectService} from "./service/subject.service";
 
+import { HttpModule }    from '@angular/http';
+
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        HttpModule,
         RouterModule.forRoot([
             { path: '', component: LoginComponent },
         ]),

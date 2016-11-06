@@ -1,23 +1,23 @@
- <div class="header">
-   <ul class="breadcrumb">
-     <li><a routerLink="/home">Sistema de inscripciones</a></li>
-     <li>Materias</li>
-   </ul>
- </div>
- <div class="content">
-   <h1>Materias</h1>
-   <p>A continuación vas a poder encontrar las materias que estarán
-     disponibles el próximo cuatrimestre. Podés encontrar más información
-     sobre las cátedras de cada una de ellas ingresando en las secciones de
-     cada materia.
-     Una vez que elijas la cátedra, podrás realizar la inscripción en
-     la sección correspondiente a esa cátedra.</p>
+<div class="header">
+    <ul class="breadcrumb">
+        <li><a routerLink="/home">Sistema de inscripciones</a></li>
+        <li>Materias</li>
+    </ul>
+</div>
+<div class="content">
+    <h1>Materias</h1>
+    <p>A continuación vas a poder encontrar las materias que estarán
+        disponibles el próximo cuatrimestre. Podés encontrar más información
+        sobre las cátedras de cada una de ellas ingresando en las secciones de
+        cada materia.
+        Una vez que elijas la cátedra, podrás realizar la inscripción en
+        la sección correspondiente a esa cátedra.</p>
 
-  <ul>
-    <li *ngFor="let subject of subjects" (click)="onSelect(subject)">
-      <span class="badge">{{subject.department}}.{{subject.code}}</span> {{subject.name}}
-    </li>
-  </ul>
+    <ul>
+        <li *ngFor="let subject of subjects" (click)="onSelect(subject)">
+            <span class="badge">{{subject.department}}.{{subject.code}}</span> {{subject.name}}
+        </li>
+    </ul>
 </div>
 
 <div class="footer">
