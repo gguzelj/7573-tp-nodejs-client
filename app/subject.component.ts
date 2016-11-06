@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
+import { LoginComponent }           from './login.component';
 
 const db_subject = {
   "id": 3,
@@ -12,7 +13,7 @@ const db_subject = {
     {
       "id": 1,
       "name": "Diez",
-      "vacancy": 40,      
+      "vacancy": 40,
       "headquarters": "(PC) Paseo Colon",
       "professors": [
         "DIEZ, EDUARDO LUIS",
@@ -41,10 +42,14 @@ const db_subject = {
 @Component({
     moduleId: module.id,
     selector: 'my-app',
-    templateUrl: 'views/subjects/show.html'
+    templateUrl: 'views/subjects/show.html',
 })
 
 export class SubjectComponent {
   // Here should be the GET request
   subject = db_subject;
+
+  enroll(course_id) {
+    console.log(course_id);
+  }
 }

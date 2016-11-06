@@ -49,11 +49,14 @@ var SubjectComponent = (function () {
         // Here should be the GET request
         this.subject = db_subject;
     }
+    SubjectComponent.prototype.enroll = function (course_id) {
+        console.log(course_id);
+    };
     SubjectComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            templateUrl: 'views/subjects/show.html'
+            templateUrl: 'views/subjects/show.html',
         }), 
         __metadata('design:paramtypes', [])
     ], SubjectComponent);

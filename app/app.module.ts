@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent }  from './app.component';
+import { LoginComponent }  from './login.component';
 import { LandingComponent }  from './landing.component';
 import { SubjectsComponent }  from './subjects.component';
 import { SubjectComponent }  from './subject.component';
@@ -13,18 +14,20 @@ import { SubjectComponent }  from './subject.component';
         BrowserModule,
         FormsModule,
         RouterModule.forRoot([
-          { path: '', component: LandingComponent },
+          { path: '', component: LoginComponent },
         ]),
         RouterModule.forChild([
           { path: 'subjects', component: SubjectsComponent },
           { path: 'subject', component: SubjectComponent },
+          { path: 'home', component: LandingComponent },
         ])
     ],
     declarations: [
         AppComponent,
         LandingComponent,
         SubjectsComponent,
-        SubjectComponent
+        SubjectComponent,
+        LoginComponent
     ],
     bootstrap: [ AppComponent ]
 })

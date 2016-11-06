@@ -48,7 +48,6 @@ body {
 }
 
 .breadcrumb li:not(:last-child):after{
-  content: ">";
   color: green;
   margin: .5em;
 }
@@ -59,7 +58,6 @@ ul>li {
 }
 
 .badge {
-  color: green;
   margin: .5em;
 }
 
@@ -78,4 +76,10 @@ ul>li {
 
 .inscription-button {
   float: right;
+}
+
+.login {
+  width: 40%;
+  padding-left: 30px;
+  padding-right: 30px;
 }

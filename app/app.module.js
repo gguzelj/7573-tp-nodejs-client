@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var login_component_1 = require('./login.component');
 var landing_component_1 = require('./landing.component');
 var subjects_component_1 = require('./subjects.component');
 var subject_component_1 = require('./subject.component');
@@ -25,18 +26,20 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 router_1.RouterModule.forRoot([
-                    { path: '', component: landing_component_1.LandingComponent },
+                    { path: '', component: login_component_1.LoginComponent },
                 ]),
                 router_1.RouterModule.forChild([
                     { path: 'subjects', component: subjects_component_1.SubjectsComponent },
                     { path: 'subject', component: subject_component_1.SubjectComponent },
+                    { path: 'home', component: landing_component_1.LandingComponent },
                 ])
             ],
             declarations: [
                 app_component_1.AppComponent,
                 landing_component_1.LandingComponent,
                 subjects_component_1.SubjectsComponent,
-                subject_component_1.SubjectComponent
+                subject_component_1.SubjectComponent,
+                login_component_1.LoginComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
