@@ -44,6 +44,9 @@ var SubjectComponent = (function () {
             _this.subject = subject;
         }, function (error) { return console.error('Error: ' + error); });
     };
+    SubjectComponent.prototype.showEnrolled = function (course) {
+        this.router.navigate([("subjects/" + this.subject.id + "/course/" + course.id + "/enrolled")]);
+    };
     SubjectComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

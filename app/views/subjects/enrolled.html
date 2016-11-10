@@ -1,0 +1,48 @@
+<div class="header">
+  <ul class="breadcrumb">
+    <li><a routerLink="/home">Sistema de inscripciones</a></li>
+    <li><a routerLink="/subjects">Materias</a></li>
+    <li><a routerLink="/subjects/{{subject_id}}">Curso</a></li>
+    <li>Inscriptos</li>
+  </ul>
+</div>
+
+<div *ngIf="students">
+  <div class="content">
+    <p>A continuación se muestran un listado de los alumnos inscriptos al curso Sarasa.</p>
+
+    <ul style="list-style-type:none">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Inscriptos</div>
+
+        <table class ="table">
+          <tr>
+            <th>Padron</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Desinscribir</th>
+          </tr>
+          <tbody *ngFor="let student of students">
+          <tr>
+            <td>{{student.student_id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.last_name}}</td>
+            <td><button type="button" class="btn btn-default" (click)="unroll(student.student_id)">Desinscribir</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </ul>
+
+  </div></div>
+
+<div class="footer">
+  <dl>
+    <dt>Copyright</dt>
+    <dd>&copy; 2016 fi.uba.ar</dd>
+    <dt>Authors</dt>
+    <dd>German Guzelj and Leandro Masello</dd>
+    <dt>Year</dt>
+    <dd>2016</dd>
+  </dl>
+</div>

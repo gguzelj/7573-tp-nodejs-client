@@ -20,6 +20,7 @@ var subject_component_1 = require('./subject.component');
 var subject_service_1 = require("./service/subject.service");
 var http_1 = require('@angular/http');
 var ng2_toastr_1 = require('ng2-toastr/ng2-toastr');
+var enrolled_component_1 = require("./enrolled.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,6 +37,7 @@ var AppModule = (function () {
                 router_1.RouterModule.forChild([
                     { path: 'subjects', component: subjects_component_1.SubjectsComponent },
                     { path: 'subjects/:subject_id', component: subject_component_1.SubjectComponent },
+                    { path: 'subjects/:subject_id/course/:course_id/enrolled', component: enrolled_component_1.EnrolledComponent },
                     { path: 'home', component: landing_component_1.LandingComponent }
                 ])
             ],
@@ -44,7 +46,8 @@ var AppModule = (function () {
                 landing_component_1.LandingComponent,
                 subjects_component_1.SubjectsComponent,
                 subject_component_1.SubjectComponent,
-                login_component_1.LoginComponent
+                login_component_1.LoginComponent,
+                enrolled_component_1.EnrolledComponent
             ],
             providers: [
                 subject_service_1.SubjectService

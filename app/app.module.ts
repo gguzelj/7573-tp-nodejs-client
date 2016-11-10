@@ -13,6 +13,7 @@ import {SubjectService} from "./service/subject.service";
 import { HttpModule }    from '@angular/http';
 
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {EnrolledComponent} from "./enrolled.component";
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
         RouterModule.forChild([
             { path: 'subjects', component: SubjectsComponent },
             { path: 'subjects/:subject_id', component: SubjectComponent },
+            { path: 'subjects/:subject_id/course/:course_id/enrolled', component: EnrolledComponent },
             { path: 'home', component: LandingComponent }
         ])
     ],
@@ -34,7 +36,8 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
         LandingComponent,
         SubjectsComponent,
         SubjectComponent,
-        LoginComponent
+        LoginComponent,
+        EnrolledComponent
     ],
     providers: [
         SubjectService

@@ -25,11 +25,24 @@ var SubjectService = (function () {
         return this.http.get(this.baseUrl + "/" + id, { headers: this.headers })
             .map(function (res) { return res.json(); });
     };
+    SubjectService.prototype.findStudentsBySubjectIdAndCourseId = function (subject_id, course_id) {
+        var url = this.baseUrl + "/" + subject_id + "/courses/" + course_id + "/students";
+        return this.http.get(url, { headers: this.headers })
+            .map(function (res) { return res.json(); });
+    };
     SubjectService.prototype.enroll = function (subject_id, course_id, user_number) {
         var url = this.baseUrl + "/" + subject_id + "/courses/" + course_id;
         var body = JSON.stringify({ student_id: user_number, name: "nombre", last_name: "apellido" });
         return this.http
             .post(url, body, { headers: this.headers })
+            .map(function (res) {
+            return res.json();
+        });
+    };
+    SubjectService.prototype.unroll = function (subject_id, course_id, student_id) {
+        var url = this.baseUrl + "/" + subject_id + "/courses/" + course_id + "/students/" + student_id;
+        return this.http
+            .delete(url, { headers: this.headers })
             .map(function (res) {
             return res.json();
         });

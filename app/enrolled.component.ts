@@ -3,16 +3,19 @@ import {Router, ActivatedRoute, Params} from "@angular/router";
 import {SubjectService} from "./service/subject.service";
 import {Subject} from "./model/subject";
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import {Student} from "./model/student";
 
 @Component({
     moduleId: module.id,
-    selector: 'subject-detail',
-    templateUrl: 'views/subjects/show.html'
+    selector: 'students-detail',
+    templateUrl: 'views/subjects/enrolled.html'
 })
 
-export class SubjectComponent implements OnInit {
+export class EnrolledComponent implements OnInit {
 
-    subject:Subject;
+    students:Student[];
+    subject_id:number;
+    course_id:number;
 
     constructor(
         private route: ActivatedRoute,
@@ -23,22 +26,19 @@ export class SubjectComponent implements OnInit {
 
 
     ngOnInit(): void {
-
-        let subject_id;
         this.route.params.forEach((params: Params) => {
-            subject_id = +params['subject_id'];
+            this.subject_id = +params['subject_id'];
+            this.course_id = +params['course_id'];
         });
-
-        this.reloadData(subject_id);
+        this.reloadData();
     }
 
-    enroll(course_id): void {
-        var student_id = localStorage.getItem('user_number');
-        this.service.enroll(this.subject.id, course_id, student_id)
+    unroll(student_id): void {
+        this.service.unroll(this.subject_id, this.course_id, student_id)
             .subscribe(
                 student => {
-                    this.reloadData(this.subject.id);
-                    this.toastr.success('Alumno ' + student_id + ' inscripto', 'Excelente!');
+                    this.reloadData();
+                    this.toastr.success('Alumno ' + student.student_id + ' desinscripto correctamente.', 'Excelente!');
                 },
                 error => {
                     this.toastr.error(error.json().message, 'Oops!');
@@ -46,17 +46,13 @@ export class SubjectComponent implements OnInit {
             );
     }
 
-    reloadData(subject_id): void {
-        this.service.findSubjectById(subject_id)
+    reloadData(): void {
+        this.service.findStudentsBySubjectIdAndCourseId(this.subject_id, this.course_id)
             .subscribe(
-                (subject) => {
-                    this.subject = subject;
+                (students) => {
+                    this.students = students;
                 },
                 (error) => console.error('Error: ' + error));
-    }
-
-    showEnrolled(course): void {
-        this.router.navigate([`subjects/${this.subject.id}/course/${course.id}/enrolled`]);
     }
 
 }
