@@ -30,7 +30,9 @@ var SubjectService = (function () {
         var body = JSON.stringify({ student_id: user_number, name: "nombre", last_name: "apellido" });
         return this.http
             .post(url, body, { headers: this.headers })
-            .map(function (res) { return res.json(); });
+            .map(function (res) {
+            return res.json();
+        });
     };
     SubjectService = __decorate([
         core_1.Injectable(), 

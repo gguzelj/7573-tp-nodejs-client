@@ -27,6 +27,8 @@ export class SubjectService {
 
         return this.http
             .post(url, body, {headers: this.headers})
-            .map(res => res.json());
+            .map(res => {
+                return res.json()
+            });
     }
 }

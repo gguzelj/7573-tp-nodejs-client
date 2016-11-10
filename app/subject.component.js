@@ -33,7 +33,9 @@ var SubjectComponent = (function () {
             .subscribe(function (student) {
             _this.reloadData(_this.subject.id);
             _this.toastr.success('Alumno ' + student_id + ' inscripto', 'Excelente!');
-        }, function (error) { return _this.toastr.error('Algo no salió bien!', 'Oops!'); });
+        }, function (error) {
+            _this.toastr.error(error.json().message, 'Oops!');
+        });
     };
     SubjectComponent.prototype.reloadData = function (subject_id) {
         var _this = this;

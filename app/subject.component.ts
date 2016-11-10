@@ -40,17 +40,19 @@ export class SubjectComponent implements OnInit {
                     this.reloadData(this.subject.id);
                     this.toastr.success('Alumno ' + student_id + ' inscripto', 'Excelente!');
                 },
-                error => this.toastr.error('Algo no salió bien!', 'Oops!')
+                error => {
+                    this.toastr.error(error.json().message, 'Oops!');
+                }
             );
     }
 
     reloadData(subject_id): void {
         this.service.findSubjectById(subject_id)
             .subscribe(
-                subject => {
+                (subject) => {
                     this.subject = subject;
                 },
-                error => console.error('Error: ' + error));
+                (error) => console.error('Error: ' + error));
     }
 
 }
