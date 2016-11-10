@@ -9,7 +9,7 @@
 
 <div *ngIf="students">
   <div class="content">
-    <p>A continuación se muestran un listado de los alumnos inscriptos al curso Sarasa.</p>
+    <p>A continuación se muestran un listado de los alumnos inscriptos al curso.</p>
 
     <ul style="list-style-type:none">
       <div class="panel panel-primary">
@@ -32,6 +32,7 @@
           </tbody>
         </table>
       </div>
+      <button type="button" class="btn-group btn-group-lg" routerLink="/subjects/{{subject_id}}">Volver</button>
     </ul>
 
   </div></div>
